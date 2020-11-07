@@ -16,6 +16,8 @@ namespace Calculator202010
         double secondNumber;
         int firstNumberLength;
         string operation;
+        bool operationActive = false;
+        bool allowPeriod = true;
 
         public Calculator()
         {
@@ -38,9 +40,10 @@ namespace Calculator202010
 
         private void buttonPeriod_Click(object sender, EventArgs e)
         {
-            if (!Display.Text.Contains("."))
+            if (allowPeriod)
             {
                 Display.Text += ".";
+                allowPeriod = false;
             }           
         }
 
@@ -62,6 +65,7 @@ namespace Calculator202010
             }
 
             Display.Text = s;
+            CheckPeriod();
         }
 
         private void buttonSign_Click(object sender, EventArgs e)
@@ -79,11 +83,18 @@ namespace Calculator202010
                 firstNumber = Convert.ToDouble(Display.Text);
                 operation = "addition";
                 Display.Text += "+";
+                operationActive = true;
+                allowPeriod = true;
             }
         }
 
         private void buttonResult_Click(object sender, EventArgs e)
         {
+            if (!operationActive)
+            {
+                return;
+            }
+            
             double result = 0;
             int secondNumberLength = Display.Text.Length - firstNumberLength - 1;
             string seconNumberText = Display.Text.Substring(firstNumberLength + 1, secondNumberLength);
@@ -93,6 +104,20 @@ namespace Calculator202010
                 result = firstNumber + secondNumber;
             }
             Display.Text = Convert.ToString(result);
+            operationActive = false;
+            CheckPeriod();
+        }
+
+        private void CheckPeriod()
+        {
+            if (Display.Text.Contains("."))
+            {
+                allowPeriod = false;
+            }
+            else
+            {
+                allowPeriod = true;
+            }
         }
     }
 }

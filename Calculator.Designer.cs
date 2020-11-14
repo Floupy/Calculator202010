@@ -43,10 +43,10 @@
             this.buttonBackspace = new System.Windows.Forms.Button();
             this.buttonSign = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonResult = new System.Windows.Forms.Button();
             this.buttonSubstract = new System.Windows.Forms.Button();
             this.buttonMultiply = new System.Windows.Forms.Button();
             this.buttonDivide = new System.Windows.Forms.Button();
-            this.buttonResult = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Display
@@ -226,40 +226,7 @@
             this.buttonAdd.TabIndex = 14;
             this.buttonAdd.Text = "+";
             this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
-            // 
-            // buttonSubstract
-            // 
-            this.buttonSubstract.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSubstract.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSubstract.Location = new System.Drawing.Point(270, 173);
-            this.buttonSubstract.Name = "buttonSubstract";
-            this.buttonSubstract.Size = new System.Drawing.Size(80, 80);
-            this.buttonSubstract.TabIndex = 15;
-            this.buttonSubstract.Text = "-";
-            this.buttonSubstract.UseVisualStyleBackColor = true;
-            // 
-            // buttonMultiply
-            // 
-            this.buttonMultiply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonMultiply.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonMultiply.Location = new System.Drawing.Point(270, 259);
-            this.buttonMultiply.Name = "buttonMultiply";
-            this.buttonMultiply.Size = new System.Drawing.Size(80, 80);
-            this.buttonMultiply.TabIndex = 16;
-            this.buttonMultiply.Text = "x";
-            this.buttonMultiply.UseVisualStyleBackColor = true;
-            // 
-            // buttonDivide
-            // 
-            this.buttonDivide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDivide.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDivide.Location = new System.Drawing.Point(270, 345);
-            this.buttonDivide.Name = "buttonDivide";
-            this.buttonDivide.Size = new System.Drawing.Size(80, 80);
-            this.buttonDivide.TabIndex = 17;
-            this.buttonDivide.Text = "/";
-            this.buttonDivide.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonOperation_Click);
             // 
             // buttonResult
             // 
@@ -273,11 +240,47 @@
             this.buttonResult.UseVisualStyleBackColor = true;
             this.buttonResult.Click += new System.EventHandler(this.buttonResult_Click);
             // 
+            // buttonSubstract
+            // 
+            this.buttonSubstract.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSubstract.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSubstract.Location = new System.Drawing.Point(270, 173);
+            this.buttonSubstract.Name = "buttonSubstract";
+            this.buttonSubstract.Size = new System.Drawing.Size(80, 80);
+            this.buttonSubstract.TabIndex = 15;
+            this.buttonSubstract.Text = "-";
+            this.buttonSubstract.UseVisualStyleBackColor = true;
+            this.buttonSubstract.Click += new System.EventHandler(this.buttonOperation_Click);
+            // 
+            // buttonMultiply
+            // 
+            this.buttonMultiply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMultiply.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonMultiply.Location = new System.Drawing.Point(270, 259);
+            this.buttonMultiply.Name = "buttonMultiply";
+            this.buttonMultiply.Size = new System.Drawing.Size(80, 80);
+            this.buttonMultiply.TabIndex = 16;
+            this.buttonMultiply.Text = "*";
+            this.buttonMultiply.UseVisualStyleBackColor = true;
+            this.buttonMultiply.Click += new System.EventHandler(this.buttonOperation_Click);
+            // 
+            // buttonDivide
+            // 
+            this.buttonDivide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDivide.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDivide.Location = new System.Drawing.Point(270, 345);
+            this.buttonDivide.Name = "buttonDivide";
+            this.buttonDivide.Size = new System.Drawing.Size(80, 80);
+            this.buttonDivide.TabIndex = 17;
+            this.buttonDivide.Text = "/";
+            this.buttonDivide.UseVisualStyleBackColor = true;
+            this.buttonDivide.Click += new System.EventHandler(this.buttonOperation_Click);
+            // 
             // Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(368, 532);
+            this.ClientSize = new System.Drawing.Size(579, 569);
             this.Controls.Add(this.buttonResult);
             this.Controls.Add(this.buttonDivide);
             this.Controls.Add(this.buttonMultiply);
@@ -320,10 +323,10 @@
         private System.Windows.Forms.Button buttonBackspace;
         private System.Windows.Forms.Button buttonSign;
         private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button buttonResult;
         private System.Windows.Forms.Button buttonSubstract;
         private System.Windows.Forms.Button buttonMultiply;
         private System.Windows.Forms.Button buttonDivide;
-        private System.Windows.Forms.Button buttonResult;
     }
 }
 

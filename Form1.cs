@@ -14,6 +14,7 @@ namespace Calculator202010
     public partial class Form1 : Form
     {
         private string operation = null;
+        private bool operationActive = false;
 
         public Form1()
         {
@@ -52,12 +53,14 @@ namespace Calculator202010
             catch { }
         }
 
-        private void buttonAdd_Click(object sender, EventArgs e)
+        private void ButtonOperation_Click(object sender, EventArgs e)
         {
-            if (!Display.Text.Contains("+"))
+            var button = (Button)sender;
+            if (!operationActive)
             {
-                operation = "+";
-                Display.Text += "+";
+                operation = button.Text;
+                Display.Text += button.Text;
+                operationActive = true;
             }
         }
 
@@ -67,12 +70,44 @@ namespace Calculator202010
 
             try
             {
-                string[] numberTexts = Display.Text.Split('+');
-                result = Convert.ToDouble(numberTexts[0]) +
-                         Convert.ToDouble(numberTexts[1]);
+                string[] numberTexts = Display.Text.Split(Convert.ToChar(operation));
+                double[] numbers = new double[2];
+                
+                numbers[0] = Convert.ToDouble(numberTexts[0]);
+                numbers[1] = Convert.ToDouble(numberTexts[1]);
+                
+                if(operation == "+")
+                {
+                    result = numbers[0] + numbers[1];
+                }
+                else if(operation == "-")
+                {
+                    result = numbers[0] - numbers[1];
+                }
+                else if (operation == "*")
+                {
+                    result = numbers[0] * numbers[1];
+                }
+                else if (operation == "/")
+                {
+                    result = numbers[0] / numbers[1];
+                }
+                else
+                {
+                    result = 0;
+                }
+
                 Display.Text = Convert.ToString(result);
+                operationActive = false;
             }
             catch { }
+        }
+
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            Display.Text = "0";
+            operation = string.Empty;
+            operationActive = false;
         }
     }
 }
